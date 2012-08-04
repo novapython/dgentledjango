@@ -1,0 +1,7 @@
+{% if teacher %}
+  <fieldset>
+    <legend>{{ teacher.name }}</legend>
+    <label for="number">Favorite Number</label>
+    <input type="text" value="{{ teacher.favorite_number }}" />
+  </fieldset>
+{% endif %}
