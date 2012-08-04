@@ -7,8 +7,10 @@ from intro.models import Teacher, Student
 
 def index(request):
     teacher_list = Teacher.objects.all()
+    student_list = Student.objects.all()
     return render_to_response('intro/index.html',
-                                {'teacher_list': teacher_list})
+                                {'teacher_list': teacher_list,
+                                 'student_list': student_list})
 
 def teacherdetail(request, teacher_id):
     try:

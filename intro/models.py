@@ -5,9 +5,9 @@ from django.db import models
 class Teacher(models.Model):
 
     name = models.CharField(max_length=64)
-    favorite_number = models.IntegerField()
+    favorite_number = models.IntegerField(blank=True)
 
 class Student(models.Model):
 
     name = models.CharField(max_length=64)
-    goal = models.CharField(max_length=128)
+    goal = models.CharField(max_length=128, blank=True)
