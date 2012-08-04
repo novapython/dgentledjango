@@ -1,0 +1,7 @@
+{% if student %}
+  <fieldset>
+    <legend>{{ student.name }}</legend>
+    <label for="goal">Goal</label>
+    <input type="text" value="{{ student.goal }}" />
+  </fieldset>
+{% endif %}
