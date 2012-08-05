@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dgentle Django</title>
+    <meta charset="utf-8">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav pull-right">
+            {% if user %}
+            <li><a href="#">Welcome Back {{ user }}!</a></li>
+            <li><a href="/accounts/logout">Logout</a></li>
+            {% else %}
+            {% if error %}
+            <li><span class="label label-important">{{ error }}</span></li>
+            {% endif %}
+            <li>
+              <form id="loginform" class="navbar-form" method="POST" action="/accounts/login/">
+                {% csrf_token %}
+                <input class="span2" type="text" name="username" placeholder="username">
+                <input class="span2" type="password" name="password" placeholder="password">
+              </form>
+            </li>
+            <li><a href="#" onclick="document.forms['loginform'].submit()">Login</a></li>
+            <li><a href="/accounts/register">Register</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Teachers</li>
+              {% if teacher_list %}
+                {% for teacher in teacher_list %}
+                  <li><a href="/teacher/{{ teacher.id }}/">{{ teacher.name }}</a></li>
+                {% endfor %}
+              {% else %}
+                <li>No teachers in this class!</li>
+              {% endif %}
+              <li class="nav-header">Students</li>
+              {% if student_list %}
+                {% for student in student_list %}
+                  <li><a href="/student/{{ student.id }}/">{{ student.name }}</a></li>
+                {% endfor %}
+              {% else %}
+                <li>No students in this class!</li>
+              {% endif %}
+              <li class="nav-header">Hair Metal Bands</li>
+              {% if band_list %}
+                {% for band in band_list %}
+                  <li><a href="/band/{{ band.id }}/">{{ band.name }}</a></li>
+                {% endfor %}
+              {% else %}
+                <li>No bands found!</li>
+              {% endif %}
+            </ul>
+          </div>
+        </div> <!-- /span -->
+        <div class="span6">
+          <div class="hero-unit">
+            <h1>Dgentle Django</h1>
+            <p>
+               Welcome to Dgentle Django! Our goal is to give an
+               introduction to Django and get you started on your 
+               own websites.
+            </p>
+          </div>
+          <div class="span4">
+            <h2>Add band</h2>
+            <form class="well" method="POST" action="/userreg/band/">
+              {% csrf_token %}
+              <label>Band Name</label>
+              <input type="text" class="span10" name="name" placeholder="band name..." />
+              <button type="submit" class="btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

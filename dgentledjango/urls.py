@@ -15,6 +15,11 @@ urlpatterns = patterns('',
     url(r'^forminput/$', 'forminput.views.index'),
 
     ## User Registration
+    url(r'^userreg/$', 'userreg.views.index'),
+    url(r'^userreg/band/(?P<band_id>\d+)/$', 'userreg.views.banddetail'),
+    url(r'^userreg/band/$', 'userreg.views.bandindex'),
+    url(r'^accounts/logout/$', 'userreg.views.logoutuser'),
+    url(r'^accounts/login/$', 'userreg.views.loginuser'),
     url(r'^accounts/', include('registration.backends.default.urls')),
 
     ## Administration
