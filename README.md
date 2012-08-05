@@ -20,20 +20,21 @@ templates path.
 
 Create a database, and set the database access settings correctly in dgentledjango/settings.py
 
-python manage.py syncdb
+```python manage.py syncdb
 python manage.py runserver
+```
 
 Modules
 =======
 
-intro/
- - Simple template website
+* intro/
+ * Simple template website
 
-classlist/
- - Show information from a database
+* classlist/
+ * Show information from a database
 
-forminput/
- - Allow users to add information to the database through a webform.
+* forminput/
+ * Allow users to add information to the database through a webform.
 
-userreg/
- - Require user registration to view and modify the database
+* userreg/
+ * Require user registration to view and modify the database
