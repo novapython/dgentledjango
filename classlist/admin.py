@@ -1,4 +1,4 @@
-from intro.models import Teacher, Student
+from classlist.models import Teacher, Student
 from django.contrib import admin
 
 admin.site.register(Teacher)

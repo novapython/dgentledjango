@@ -3,7 +3,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Context, loader, RequestContext
-from intro.models import Teacher, Student
+from classlist.models import Teacher, Student
 from forminput.models import Band
 from forminput.forms import BandForm
 
