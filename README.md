@@ -20,9 +20,10 @@ templates path.
 
 Create a database, and set the database access settings correctly in dgentledjango/settings.py
 
-```python manage.py syncdb
-python manage.py runserver
-```
+Then sync the database and run the server:
+
+    python manage.py syncdb
+    python manage.py runserver
 
 Modules
 =======
